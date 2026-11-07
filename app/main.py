@@ -5,10 +5,12 @@ from sqlalchemy.orm import Session
 
 from app import models, schemas
 from app.database import Base, engine, get_db
+from app.routers import transacoes
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Controle Financeiro")
+app.include_router(transacoes.router)
 
 
 @app.get("/health")
