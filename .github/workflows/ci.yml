@@ -55,7 +55,7 @@ jobs:
       - name: Construir a imagem
         run: docker build -t controle-financeiro:ci .
       - name: Escanear com Trivy
-        uses: aquasecurity/trivy-action@https://github.com/aquasecurity/trivy-action/commit/38b337fff0a2f984d5be173c99e3f633438167ec # v0.36.0
+        uses: aquasecurity/trivy-action@0.29.0 # v0.36.0
         with:
           image-ref: controle-financeiro:ci
           severity: CRITICAL,HIGH
