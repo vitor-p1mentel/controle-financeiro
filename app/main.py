@@ -12,7 +12,6 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(title="Controle Financeiro")
 app.include_router(transacoes.router)
 
-
 @app.get("/health")
 def health():
     return {"status": "ok"}
