@@ -14,8 +14,8 @@ jobs:
     name: Testes
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a ## v7.0.1
+      - uses: actions/setup-python@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a ## v7.0.1
         with:
           python-version: "3.14"
           cache: pip
@@ -26,8 +26,8 @@ jobs:
     name: Segurança
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a ## v7.0.1
+      - uses: actions/setup-python@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a ## v7.0.1
         with:
           python-version: "3.14"
       - run: pip install bandit pip-audit
@@ -40,10 +40,10 @@ jobs:
     name: Segredos
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a ## v7.0.1
         with:
           fetch-depth: 0
-      - uses: gitleaks/gitleaks-action@v2
+      - uses: gitleaks/gitleaks-action@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a ## v7.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -51,7 +51,7 @@ jobs:
     name: Imagem
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a ## v7.0.1
       - name: Construir a imagem
         run: docker build -t controle-financeiro:ci .
       - name: Escanear com Trivy
