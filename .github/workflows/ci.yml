@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.14"
           cache: pip
-      - run: pip install -r requirements.txt
+      - run: pip install -r requirements-dev.txt
       - run: python -m pytest
 
   seguranca:
@@ -30,12 +30,11 @@ jobs:
       - uses: actions/setup-python@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a ## v7.0.1
         with:
           python-version: "3.14"
-      - run: pip install bandit pip-audit
+      - run: pip install -r requirements-dev.txt
       - name: Análise estática (Bandit)
         run: bandit -r app -ll
       - name: Dependências vulneráveis (pip-audit)
         run: pip-audit -r requirements.txt
-
   segredos:
     name: Segredos
     runs-on: ubuntu-latest
